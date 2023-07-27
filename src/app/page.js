@@ -82,7 +82,7 @@ export default function RegisFormPage() {
       setPlanError(true);
     }
     if (gender === null){
-      gender = false;
+      genderOk = false;
       setGenderError(true);
     }
 
