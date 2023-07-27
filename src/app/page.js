@@ -5,8 +5,11 @@ export default function RegisFormPage() {
   const [fname, setFname] = useState("");
   const [fnameError, setFnameError] = useState(false);
   const [lname, setLname] = useState("");
+  const [lnameError , setLnameError] = useState(false);
   const [plan, setPlan] = useState("");
+  const [planError , setPlanError] = useState(false);
   const [gender, setGender] = useState(null);
+  const [genderError, setGenderError] = useState(false);
   const [buyBottle, setBuyBottle] = useState(false);
   const [buyShoes, setBuyShoes] = useState(false);
   const [buyCap, setBuyCap] = useState(false);
@@ -17,18 +20,22 @@ export default function RegisFormPage() {
   };
 
   const inputLnameOnChange = (event) => {
+    setLnameError(false);
     setLname(event.target.value);
   };
 
   const selectPlanOnChange = (event) => {
+    setPlanError(false);
     setPlan(event.target.value);
   };
 
   const radioGenderMaleOnChange = () => {
+    setGenderError(false);
     setGender("male");
   };
 
   const radioGenderFemaleOnChange = () => {
+    setGenderError(false);
     setGender("female");
   };
 
@@ -59,12 +66,27 @@ export default function RegisFormPage() {
 
   const registerBtnOnClick = () => {
     let fnameOk = true;
+    let lnameOk = true;
+    let planOk = true;
+    let genderOk = true;
     if (fname === "") {
       fnameOk = false;
       setFnameError(true);
     }
+    if (lname === ""){
+      lnameOk = false;
+      setLnameError(true);
+    }
+    if (plan === ""){
+      planOk = flase;
+      setPlanError(true);
+    }
+    if (gender === null){
+      gender = false;
+      setGenderError(true);
+    }
 
-    if (fnameOk) {
+    if (fnameOk && lnameOk && planOk && genderOk) {
       alert(
         `Registration complete. Please pay money for ${computeTotalPayment().toLocaleString()} THB.`
       );
