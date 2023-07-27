@@ -110,7 +110,7 @@ export default function RegisFormPage() {
         <div>
           <label className="form-label">Last name</label>
           <input
-            className="form-control"
+            className={"form-control" + (lnameError ? " is-invalid" : "")}
             onChange={inputLnameOnChange}
             value={lname}
           />
@@ -122,7 +122,7 @@ export default function RegisFormPage() {
       <div>
         <label className="form-label">Plan</label>
         <select
-          className="form-select"
+          className={"form-select" + (planError ? "is-invalid" : "")}
           onChange={selectPlanOnChange}
           value={plan}
         >
@@ -140,17 +140,18 @@ export default function RegisFormPage() {
         <label className="form-label">Gender</label>
         <div>
           <input
-            className="me-2 form-check-input"
+            className={"me-2 form-check-input" + (genderError ? "is-invalid":"")}
             type="radio"
             onChange={radioGenderMaleOnChange}
             checked={gender === "male"}
           />
           Male 👨
           <input
-            className="mx-2 form-check-input"
+            className={"mx-2 form-check-input" + (genderError ? "is-invalid":"")}
             type="radio"
             onChange={radioGenderFemaleOnChange}
             checked={gender === "female"}
+            
           />
           Female 👩
           {/* To show error when user did not select gender, */}
