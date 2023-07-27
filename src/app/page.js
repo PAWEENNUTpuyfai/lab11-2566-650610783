@@ -9,7 +9,7 @@ export default function RegisFormPage() {
   const [plan, setPlan] = useState("");
   const [planError,setPlanError] = useState(false);
   const [gender, setGender] = useState(null);
-  const [genderError,setGenderError] = useState(true);
+  const [genderError,setGenderError] = useState(false);
   const [buyBottle, setBuyBottle] = useState(false);
   const [buyShoes, setBuyShoes] = useState(false);
   const [buyCap, setBuyCap] = useState(false);
@@ -92,7 +92,7 @@ export default function RegisFormPage() {
       setPlanError(true);
     }
 
-    if (gender === ""){
+    if (gender ===null){
       genderOk = false;
       setGenderError(true);
     }
