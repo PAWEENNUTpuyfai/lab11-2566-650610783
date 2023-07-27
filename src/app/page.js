@@ -65,6 +65,7 @@ export default function RegisFormPage() {
   }
 
   const registerBtnOnClick = () => {
+    let registerOnclick = true;
     let fnameOk = true;
     let lnameOk = true;
     let planOk = true;
@@ -122,7 +123,7 @@ export default function RegisFormPage() {
       <div>
         <label className="form-label">Plan</label>
         <select
-          className={"form-select" + (planError ? "is-invalid" : "")}
+          className={"form-select" + (planError ? " is-invalid" : "")}
           onChange={selectPlanOnChange}
           value={plan}
         >
@@ -140,23 +141,24 @@ export default function RegisFormPage() {
         <label className="form-label">Gender</label>
         <div>
           <input
-            className={"me-2 form-check-input" + (genderError ? "is-invalid":"")}
+            className="me-2 form-check-input"
             type="radio"
             onChange={radioGenderMaleOnChange}
             checked={gender === "male"}
           />
           Male 👨
           <input
-            className={"mx-2 form-check-input" + (genderError ? "is-invalid":"")}
+            className="mx-2 form-check-input"
             type="radio"
             onChange={radioGenderFemaleOnChange}
             checked={gender === "female"}
             
           />
           Female 👩
-          {/* To show error when user did not select gender, */}
-          {/* We just have to render the div below (Not using is-invalid bootstrap class) */}
-          {/* <div className="text-danger">Please select gender</div> */}
+          {genderError && registerOnclick (
+            <div className="text-danger">Please select gender</div>
+          )}
+          
         </div>
       </div>
 
@@ -191,7 +193,7 @@ export default function RegisFormPage() {
           <label className="form-check-label">Cap 🧢 (400 THB)</label>
         </div>
       </div>
-
+      
       <div className="alert alert-primary" role="alert">
         Promotion📢 Buy all items to get 20% Discount
       </div>
